@@ -1,0 +1,191 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category> 
+    <pattern> HELLO </pattern>
+    <template>
+        <random>
+            <li> Hello, How are you?</li>
+            <li> Hi, may you introduce your self?</li>
+        </random>
+    </template> 
+</category>
+
+<category> 
+    <pattern> HELLO * </pattern>
+    <template><srai>HELLO</srai></template> 
+</category>
+
+<category> 
+    <pattern> HI </pattern>
+    <template><srai>HELLO</srai></template>
+</category>
+
+<category> 
+    <pattern> HI * </pattern>
+    <template><srai>HELLO</srai></template>
+</category>
+
+<category> 
+    <pattern> I AM * </pattern>
+    <template>Nice to meet you <set name="userName"><star/></set></template>
+</category>
+
+<category> 
+    <pattern> MY NAME IS * </pattern>
+    <template><srai>I AM <star/></srai></template>
+</category>
+
+<category> 
+    <pattern> HOW ARE YOU </pattern>
+    <template>I'm very well, thanks for asking <get name="userName"/> </template>
+</category>
+
+<category>
+    <pattern> I AM FINE </pattern>
+    <template>That's good to know. how may i help you in regards to COVID-19?</template>
+</category>
+
+<category>
+    <pattern> FINE THANKS</pattern>
+    <template><srai>I AM FINE</srai></template>
+</category>
+
+<category>
+    <pattern> I AM FINE THANKS</pattern>
+    <template><srai>I AM FINE</srai></template>
+</category>
+
+<category>
+    <pattern> I AM GOOD</pattern>
+    <template><srai>I AM FINE</srai></template>
+</category>
+
+<category>
+    <pattern> IAM GOOD THANKS</pattern>
+    <template><srai>I AM FINE</srai></template>
+</category>
+
+<category>
+    <pattern> BYE </pattern>
+    <template>#0$Bye, Nice talking to you <get name="userName"/>, take care </template>
+</category>
+
+<category>
+    <pattern> GOOD BYE </pattern>
+    <template><srai>BYE</srai></template>
+</category>
+
+<category>
+    <pattern> GOODBYE </pattern>
+    <template><srai>BYE</srai></template>
+</category>
+
+<category>
+    <pattern> EXIT </pattern>
+    <template><srai>BYE</srai></template>
+</category>
+
+<category> 
+    <pattern> THANKS </pattern>
+    <template>You are welcome <get name="userName"/></template>
+</category>
+
+<category>
+    <pattern> THANK YOU </pattern>
+    <template><srai>THANKS</srai></template>
+</category>
+
+<category>
+    <pattern> CHEERS </pattern>
+    <template><srai>THANKS</srai></template>
+</category>
+
+<category> 
+    <pattern> CHEERS * </pattern>
+    <template><srai>THANKS</srai></template>
+</category>
+
+<!-- COVID-19 API -->
+<category>
+    <pattern> WHAT IS THE DEATH RATE IN * </pattern>
+    <template>#1$<star/></template>
+</category>
+
+<category>
+    <pattern> WHAT IS THE NUMBER OF DEATHS IN * </pattern>
+    <template> <srai>WHAT IS THE DEATH RATE IN <star/></srai></template>
+</category>
+
+<!-- CNN face mask classifier -->
+<category>
+    <pattern> OPEN AN IMAGE </pattern>
+    <template>#2$Folder is opened, please select an image </template>
+</category>
+
+<category>
+    <pattern> OPEN THE CAMERA </pattern>
+    <template>#4$Camera is opening </template>
+</category>
+
+<!-- Knowledge Base-->
+<!-- Logic input 1-->
+<category><pattern> I KNOW THAT * IS *</pattern>
+  <template>#31$<star index="1"/> is <star index="2"/></template></category>  
+
+<category><pattern> CHECK THAT * IS *</pattern>
+  <template>#32$<star index="1"/> is <star index="2"/></template></category> 
+  
+<!-- Logic input 2-->
+<category><pattern> I KNOW THAT * WAS * IN *</pattern>
+  <template>#33$<star index="1"/> was <star index="2"/> in <star index="3"/></template></category>  
+  
+<category><pattern> I KNOW THAT * IS A * IN *</pattern>
+  <template>#34$<star index="1"/> is a <star index="2"/> in <star index="3"/></template></category> 
+  
+<category><pattern> CHECK THAT * IS A * IN *</pattern>
+  <template>#35$<star index="1"/> is a <star index="2"/> in <star index="3"/></template></category>
+
+<category><pattern> CHECK THAT * WAS * IN *</pattern>
+  <template>#36$<star index="1"/> was <star index="2"/> in <star index="3"/></template></category>
+  
+<!-- Logic input 3-->
+<category><pattern> I KNOW THAT * IS * BY *</pattern>
+  <template>#37$<star index="1"/> is <star index="2"/> by <star index="3"/></template></category>
+  
+<category><pattern> CHECK THAT * IS * BY *</pattern>
+  <template>#38$<star index="1"/> is <star index="2"/> by <star index="3"/></template></category>
+
+<category><pattern> CHECK THAT * IS * WITH *</pattern>
+  <template>#39$<star index="1"/> is <star index="2"/> with <star index="3"/></template></category>
+  
+  <!-- Logic input 5-->
+<category><pattern> CHECK THAT * CAN BE * WITH *</pattern>
+  <template>#40$<star index="1"/> can be <star index="2"/> with <star index="3"/></template></category>
+  
+<!-- Logic input 6-->
+<category><pattern> I KNOW THAT * CAN * TO *</pattern>
+  <template>#41$<star index="1"/> can <star index="2"/> to <star index="3"/></template></category>
+  
+<category><pattern> CHECK THAT * CAN * TO *</pattern>
+  <template>#43$<star index="1"/> can <star index="2"/> to <star index="3"/></template></category>
+  
+  <!-- Logic input 7-->
+<category><pattern> I KNOW THAT * IS IN * WITH *</pattern>
+  <template>#44$<star index="1"/> is in <star index="2"/> with <star index="3"/></template></category>
+  
+<category><pattern> CHECK THAT * IS AT * SERIOUS ILLNESS *</pattern>
+  <template>#45$<star index="1"/> is at <star index="2"/> serious illness <star index="3"/></template></category>
+  
+  <!-- Logic input 8-->
+<category><pattern> I KNOW THAT * CAN * THROUGH *</pattern>
+  <template>#46$<star index="1"/> can <star index="2"/> through <star index="3"/></template></category>
+  
+<category><pattern> CHECK THAT THAT * CAN * THROUGH *</pattern>
+  <template>#47$<star index="1"/> can <star index="2"/> through <star index="3"/></template></category>
+
+<!-- Default response -->
+<category><pattern> * </pattern>
+  <template>#99$<star index="1"/></template></category>
+
+</aiml>
